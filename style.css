@@ -112,11 +112,16 @@
 
 .profile__button-add {
   background: url(./images/button.png) 50% no-repeat;
-  background-size: contain;
+  background-size: cover;
   width: 150px;
   cursor: pointer;
   height: 50px;
-  border: 1px solid;
+  border: 2px solid #fff;
+  transition: opacity 0.3s, visibility linear;
+}
+
+.profile__button-add:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 787px) {
@@ -124,6 +129,7 @@
     background: url(./images/buttonm.svg) 50% no-repeat;
     width: 282px;
     height: 50px;
+    border: 2px solid #fff;
   }
 }
 
@@ -149,6 +155,11 @@
   cursor: pointer;
   height: 24px;
   border: 1px solid;
+  transition: opacity 0.3s, visibility linear;
+}
+
+.profile__button-edit:hover {
+  opacity: 0.6;
 }
 
 .profile__name {
@@ -211,11 +222,21 @@
   line-height: 29px;
 }
 
-.card__button-like {
+.card__button_like {
   width: 22px;
   height: 19px;
   background: url(./images/like.svg) 50% no-repeat;
   border: none;
+  cursor: pointer;
+  transition: opacity 0.3s, visibility linear;
+}
+
+.card__button_like:hover {
+  opacity: 0.5;
+}
+
+.card__button_like-active {
+  background: url(./images/ALike.svg) 50% no-repeat;
 }
 
 .footer {
@@ -332,6 +353,13 @@
   line-height: 22px;
   text-align: center;
   color: #ffffff;
+  cursor: pointer;
+  transition: opacity 0.3s, visibility linear;
+  border-radius: 2px;
+}
+
+.form__button-save:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 640px) {
@@ -389,6 +417,11 @@
   right: -40px;
   top: -40px;
   cursor: pointer;
+  transition: opacity 0.3s, visibility linear;
+}
+
+.form__button-close:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 640px) {
