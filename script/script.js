@@ -9,7 +9,7 @@ let nameInput = document.querySelector('.forms__name');
 let jobInput = document.querySelector('.forms__profession');
 
 function OpenPopup(){
-    popup.classList.add('popup_opened');
+    popup.classList.add('popup__opened');
     nameInput.value = Name.textContent;
     jobInput.value = Professon.textContent;
 }
@@ -19,7 +19,7 @@ function Like(){
 }
 
 function ClosePopup(){
-    popup.classList.remove('popup_opened');
+    popup.classList.remove('popup__opened');
 }
 
 
@@ -29,9 +29,6 @@ function SavePopup(evt) {
     Professon.innerHTML = `<p class="profile__subname">${jobInput.value}</p>`
     ClosePopup();
 }
-
-
-
 
 
 ButtonEdit.addEventListener('click', OpenPopup);
