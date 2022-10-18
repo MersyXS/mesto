@@ -11,7 +11,6 @@
   color: #ffffff;
   cursor: pointer;
   transition: opacity 0.3s, visibility linear;
-  border-radius: 2px;
 }
 
 .form__button-save:hover {
