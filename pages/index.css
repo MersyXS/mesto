@@ -15,8 +15,8 @@
 @import url("../blocks/elements/elements.css");
 @import url("../blocks/card/card.css");
 @import url("../blocks/card/__info/card__info.css");
-@import url("../blocks/card/__title/__button/_like/card__button_like.css");
-@import url("../blocks/card/__title/__button/_like/-active/card__button_like-active.css");
+@import url("../blocks/card/__button/_like/-active/card__button_like-active.css");
+@import url("../blocks/card/__button/_like/card__button_like.css");
 @import url("../blocks/cards/cards.css");
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/footer/__copyright/footer__copyright.css");
