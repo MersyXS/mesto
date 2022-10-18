@@ -1,4 +1,4 @@
-.form__input {
+.popup__input {
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
@@ -13,22 +13,14 @@
   width: 100%;
 }
 
-.form__input::placeholder {
+.popup__input::placeholder {
   font-size: 14px;
   font-family: "Inter";
   line-height: 20px;
   color: #000;
 }
 
-.form__input::-webkit-input-placeholder {
-  font-size: 14px;
-  font-family: "Inter";
-  line-height: 20px;
-  opacity: 1;
-  color: #000;
-}
-
-.form__input::-moz-placeholder {
+.popup__input::-webkit-input-placeholder {
   font-size: 14px;
   font-family: "Inter";
   line-height: 20px;
@@ -36,7 +28,15 @@
   color: #000;
 }
 
-.form__input::-ms-input-placeholder {
+.popup__input::-moz-placeholder {
+  font-size: 14px;
+  font-family: "Inter";
+  line-height: 20px;
+  opacity: 1;
+  color: #000;
+}
+
+.popup__input::-ms-input-placeholder {
   font-size: 14px;
   font-family: "Inter";
   line-height: 20px;

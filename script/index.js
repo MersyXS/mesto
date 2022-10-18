@@ -1,12 +1,12 @@
 let ButtonEdit = document.querySelector('.profile__button-edit');
 let popup = document.querySelector('.popup');
 let LikeButton = document.querySelector(".elements__like-button")
-let CloseButton = document.querySelector('.form__button-close');
-let SaveButton = document.querySelector('.form__button-save');
+let CloseButton = document.querySelector('.popup__button-close');
+let SaveButton = document.querySelector('.popup__button-save');
 let Name = document.querySelector('.profile__name');
 let Professon = document.querySelector('.profile__subname');
-let nameInput = document.querySelector('.form__name');
-let jobInput = document.querySelector('.form__profession');
+let nameInput = document.querySelector('.popup__name');
+let jobInput = document.querySelector('.popup__profession');
 
 function OpenPopup(){
     popup.classList.add('popup__opened');
