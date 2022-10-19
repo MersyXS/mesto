@@ -21,10 +21,10 @@ function closePopup(){
 
 
 function savePopup(evt) {
-    console.log("123");
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.   
     names.textContent = nameInput.value;
     professon.textContent = jobInput.value;
+    closePopup();
 }
 
 
