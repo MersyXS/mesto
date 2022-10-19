@@ -1,6 +1,6 @@
 .profile__edit-button {
   width: 24px;
-  background: url(../../../../images/Edit.svg) 50% no-repeat;
+  background: url(../../../images/Edit.svg) 50% no-repeat;
   cursor: pointer;
   height: 24px;
   transition: opacity 0.3s, visibility linear;
