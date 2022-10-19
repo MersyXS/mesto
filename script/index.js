@@ -1,37 +1,33 @@
-let ButtonEdit = document.querySelector('.profile__button-edit');
+let buttonEdit = document.querySelector('.profile__edit-button');
 let popup = document.querySelector('.popup');
-let LikeButton = document.querySelector(".elements__like-button")
-let CloseButton = document.querySelector('.popup__button-close');
-let SaveButton = document.querySelector('.popup__button-save');
-let Name = document.querySelector('.profile__name');
-let Professon = document.querySelector('.profile__subname');
-let nameInput = document.querySelector('.popup__name');
-let jobInput = document.querySelector('.popup__profession');
+let forms = popup.querySelector('.popup__form');
+let closeButton = document.querySelector('.popup__close-button');
+let names = document.querySelector('.profile__name');
+let professon = document.querySelector('.profile__subname');
+let nameInput = popup.querySelector('#popup__name-input');
+let jobInput = popup.querySelector('#popup__profession-input');
 
-function OpenPopup(){
-    popup.classList.add('popup__opened');
-    nameInput.value = Name.textContent;
-    jobInput.value = Professon.textContent;
-}
 
-function Like(){
-    LikeButton.classList.add('elements__like-button_active');
-}
-
-function ClosePopup(){
-    popup.classList.remove('popup__opened');
+function openPopup(){
+    popup.classList.add('popup_opened');
+    nameInput.value = names.textContent;
+    jobInput.value = professon.textContent;
 }
 
 
-function SavePopup(evt) {
+function closePopup(){
+    popup.classList.remove('popup_opened');
+}
+
+
+function savePopup(evt) {
+    console.log("123");
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.   
-    Name.innerHTML = `<h1 class="profile__name">${nameInput.value}</h1>`
-    Professon.innerHTML = `<p class="profile__subname">${jobInput.value}</p>`
-    ClosePopup();
+    names.textContent = nameInput.value;
+    professon.textContent = jobInput.value;
 }
 
 
-ButtonEdit.addEventListener('click', OpenPopup);
-CloseButton.addEventListener('click', ClosePopup);
-SaveButton.addEventListener('click', SavePopup);
-LikeButton.addEventListener('click', Like);
+buttonEdit.addEventListener('click', openPopup);
+closeButton.addEventListener('click', closePopup);
+forms.addEventListener('submit', savePopup);

@@ -7,4 +7,5 @@
   column-gap: 17px;
   flex-wrap: wrap;
   max-width: 100%;
+  list-style: none;
 }
