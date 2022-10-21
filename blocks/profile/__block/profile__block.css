@@ -1,6 +1,15 @@
 .profile__block {
   text-overflow: ellipsis;
-  max-width: 336px;
   overflow: hidden;
   white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  gap: 16px;
+}
+
+@media screen and (max-width: 787px) {
+  .profile__block {
+    gap: 8px;
+  }
 }
