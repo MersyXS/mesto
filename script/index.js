@@ -143,7 +143,6 @@ function createCard(text){
   contElement.querySelector('.elements__image').src = text.link;
   contElement.querySelector('.elements__image').alt = text.name;
   setEventListeners(contElement);
-  console.log('123');
   return contElement;
 }
 
@@ -151,9 +150,8 @@ function createCard(text){
 
 function addCards(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.   
-  const target = evt.target;
-  const name = target.querySelector('#add-name-input').value;
-  const link = target.querySelector('#add-url-input').value;
+  const name = namePlace.value;
+  const link = UrlInput.value;
   rendemItem({ name, link });
   closePopup(popupAdd);
 };
@@ -173,7 +171,6 @@ initialCards.forEach(rendemItem);
     const target = evt.target;
     const currentListElement = target.closest('.elements__like-button');
     currentListElement.classList.toggle('elements__like-button_active');
-    console.log(currentListElement);
   }
 
   //Функция удаления карточки
