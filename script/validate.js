@@ -38,9 +38,11 @@ if (hasInvalidInput(inputList)){
 }
 }
 
+
 function setEventListeners(formElement, config){
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector))
     const buttonElement = formElement.querySelector(config.submitButtonSelector)
+    toggleButtonState(inputList, buttonElement, config);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
             checkInputValidity(formElement, inputElement, config);
@@ -48,8 +50,6 @@ function setEventListeners(formElement, config){
         })
     })
 }
-
-
 
 function enableValidation(config){
     const formList = Array.from(document.querySelectorAll(config.formSelector));

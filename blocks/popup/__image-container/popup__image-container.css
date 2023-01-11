@@ -1,15 +1,13 @@
-.popup__image-container{
-    margin: 0;
-    max-width: 75vw;
-    max-height: 75vh;
-    display: block;
-    object-fit: cover;
-    position: relative;
+.popup__image-container {
+  margin: 0;
+  display: block;
+  object-fit: cover;
+  position: relative;
 }
 
 @media screen and (max-width: 640px) {
-    .popup__image-container {
-      width: 240px;
-      height: 299px;
-    }
+  .popup__image-container {
+    width: 240px;
+    height: 299px;
   }
+}
