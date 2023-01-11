@@ -1,3 +1,13 @@
+//config
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__save-button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+};
+
 //popup
 const popup = document.querySelector('.popup');
 const popupProfile = document.querySelector('.profile-popup');
@@ -35,9 +45,9 @@ const itemTemplate = document.querySelector('.item_template').content;
 
 const container = document.querySelector('.elements__items');
 const formsEdit = popupProfile.querySelector('.popup__form');
-const formsAdd = popupAdd.querySelector('.popup__form_add');
+const formsAdd = popupAdd.querySelector('.popup__form_add'); 
 
-
+enableValidation(validationConfig);
 
 const initialCards = [
   {
@@ -66,7 +76,7 @@ const initialCards = [
   }
 ];
 
-const setEventListeners = function (contElement){
+const setListeners = function (contElement){
   const likeBtn = contElement.querySelector('.elements__like-button');
   const deleteBtn = contElement.querySelector('.elements__delete-button');
   const openBtn = contElement.querySelector('.elements__image');
@@ -89,12 +99,14 @@ const setEventListeners = function (contElement){
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEsc);
 }
 
 //Закрытие попапа 
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEsc);
 }
 
 
@@ -142,7 +154,7 @@ function createCard(text){
   contElement.querySelector('.elements__title').textContent = text.name;
   contElement.querySelector('.elements__image').src = text.link;
   contElement.querySelector('.elements__image').alt = text.name;
-  setEventListeners(contElement);
+  setListeners(contElement);
   return contElement;
 }
 
@@ -181,6 +193,24 @@ initialCards.forEach(rendemItem);
     currentListElement.remove();
   }
 
+  //Закрытие попада беграундом
+
+  const popupList = document.querySelectorAll('.popup');
+  popupList.forEach(popup => {
+    popup.addEventListener('mousedown', (evt) => {
+      if (evt.target.classList.contains('popup')) {
+         closePopup(popup)
+      }
+    })
+  });
+
+  function closeByEsc(evt) {
+    if (evt.key === "Escape") {
+      const openedPopup = document.querySelector('.popup_opened');
+      closePopup(openedPopup); 
+    }
+} 
+
   buttonEdit.addEventListener('click', openProfilePopup);
   closeButtonEdit.addEventListener('click', closeProfilePopup);
 
@@ -189,9 +219,5 @@ initialCards.forEach(rendemItem);
 
   closeButtonImage.addEventListener('click', closeAddImage);
 
-
-
-
-
-formsAdd.addEventListener('submit', addCards);
-formsEdit.addEventListener('submit', saveProfilePopup);
+  formsAdd.addEventListener('submit', addCards);
+  formsEdit.addEventListener('submit', saveProfilePopup);
