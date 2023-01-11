@@ -116,7 +116,9 @@ function handleEditClick(evt) {
 
 //Добавление карточки из масива
 function createCard(cardData) {
-  const contElement = cardTemplate.querySelector(".elements__item").cloneNode(true);
+  const contElement = cardTemplate
+    .querySelector(".elements__item")
+    .cloneNode(true);
   contElement.querySelector(".elements__title").textContent = cardData.name;
   contElement.querySelector(".elements__image").src = cardData.link;
   contElement.querySelector(".elements__image").alt = cardData.name;
