@@ -9,7 +9,6 @@ const validationConfig = {
 };
 
 //popup
-const popupEditProfile = document.querySelector(".popup");
 const popupProfile = document.querySelector(".profile-popup");
 const popupAdd = document.querySelector(".add-popup");
 const popupImage = document.querySelector(".image-popup");
@@ -30,6 +29,7 @@ const popupImageElement = popupImage.querySelector(".popup__image");
 //Элементы card-popup
 const namePlace = popupAdd.querySelector("#add-name-input");
 const urlInput = popupAdd.querySelector("#add-url-input");
+const buttonCreateCard = popupAdd.querySelector(".popup__save-button");
 
 //Элементы profile-popup
 const nameInput = popupProfile.querySelector("#edit-name-input");
@@ -107,7 +107,7 @@ const closeAddImage = function () {
 };
 
 //Сохранение значений попапа редактирования
-function handleEditClick(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   names.textContent = nameInput.value;
   profession.textContent = jobInput.value;
@@ -131,10 +131,12 @@ function handleCardFormSubmit(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   const name = namePlace.value;
   const link = urlInput.value;
+  cardForm.reset();
   renderCard({ name, link });
   closePopup(popupAdd);
-  namePlace.value = "";
-  urlInput.value = "";
+
+  buttonCreateCard.disabled = true;
+  buttonCreateCard.classList.add("popup__save-button_disabled");
 }
 
 //Рендор карточки
@@ -185,4 +187,4 @@ closeButtonAdd.addEventListener("click", closeAddCard);
 closeButtonImage.addEventListener("click", closeAddImage);
 
 cardForm.addEventListener("submit", handleCardFormSubmit);
-profileForm.addEventListener("submit", handleEditClick);
+profileForm.addEventListener("submit", handleProfileFormSubmit);

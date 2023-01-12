@@ -1,8 +1,10 @@
 .popup__image-container {
   margin: 0;
-  display: block;
+  display: flex;
   object-fit: cover;
   position: relative;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media screen and (max-width: 640px) {
