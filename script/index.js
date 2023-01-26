@@ -100,7 +100,7 @@ function handleProfileFormSubmit(evt) {
 
 const handleCardFormSubmit = (event) => {
   event.preventDefault();
-  renderCard({ name: namePlace.value, link: urlInput.value });
+  renderCard(createCard({ name: namePlace.value, link: urlInput.value }));
   namePlace.value = "";
   urlInput.value = "";
   closePopup(popupAdd);
@@ -108,21 +108,18 @@ const handleCardFormSubmit = (event) => {
   buttonCreateCard.classList.add("popup__save-button_disabled");
 };
 
-
-
-function createCard(cardData) {
-  const card = new Card(cardData);
-  return card;
+function createCard(name, link) {
+  const card = new Card(name, link);
+  return card.getView();
 }
 
-const renderCard = (cardData) => {
-  cardsContainer.prepend(createCard(cardData))
-
+function renderCard(card) {
+  cardsContainer.prepend(card);
 }
 
-
-initialCards.forEach(renderCard);
-
+initialCards.forEach((cardElement) => {
+  renderCard(createCard(cardElement));
+})
 
 const EditProfileFormValidator = new FormValidator(validationConfig, popupProfile);
 EditProfileFormValidator.enableValidation();

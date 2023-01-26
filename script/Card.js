@@ -48,7 +48,6 @@ class Card {
     }
 
 
-
     _likeCard() {
         this._buttonLike.classList.toggle("elements__like-button_active");
     }
