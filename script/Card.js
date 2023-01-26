@@ -2,10 +2,9 @@ import { popupText, popupImageElement, popupImage } from "./constants.js";
 import { openPopup } from "./index.js";
 
 class Card {
-    constructor({ name, link, buttonLike }) {
+    constructor({ name, link }) {
         this._name = name;
         this._link = link;
-        this._buttonLike = buttonLike;
     }
 
     _getTemplateCard() {
@@ -43,6 +42,7 @@ class Card {
             const currentListElementText = this._name;
             popupText.textContent = currentListElementText;
             popupImageElement.src = currentListElementImage;
+            popupImageElement.alt = currentListElementText;
             openPopup(popupImage);
         });
     }

@@ -18,9 +18,9 @@ const buttonEdit = document.querySelector(".profile__edit-button");
 const buttonAdd = document.querySelector(".profile__add-button");
 
 //Кнопки закрытие popup
-const closeButtonAdd = popupAdd.querySelector(".popup__close-button");
-const closeButtonEdit = popupProfile.querySelector(".popup__close-button");
-const closeButtonImage = popupImage.querySelector(".popup__close-button");
+const buttonAddClose = popupAdd.querySelector(".popup__close-button");
+const buttonEditClose = popupProfile.querySelector(".popup__close-button");
+const buttonImageClose = popupImage.querySelector(".popup__close-button");
 
 //Элементы image-popup
 const popupText = popupImage.querySelector(".popup__image-title");
@@ -36,7 +36,7 @@ const nameInput = popupProfile.querySelector("#edit-name-input");
 const jobInput = popupProfile.querySelector("#edit-profession-input");
 
 //Элементы имя и профессия
-const names = document.querySelector(".profile__name");
+const profileName = document.querySelector(".profile__name");
 const profession = document.querySelector(".profile__subname");
 
 //template
@@ -53,9 +53,9 @@ export {
     validationConfig,
     buttonEdit,
     buttonAdd,
-    closeButtonAdd,
-    closeButtonEdit,
-    closeButtonImage,
+    buttonAddClose,
+    buttonEditClose,
+    buttonImageClose,
     popupText,
     popupImageElement,
     namePlace,
@@ -63,7 +63,7 @@ export {
     buttonCreateCard,
     nameInput,
     jobInput,
-    names,
+    profileName,
     profession,
     cardTemplate,
     cardsContainer,

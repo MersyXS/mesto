@@ -7,19 +7,16 @@ import {
   validationConfig,
   buttonEdit,
   buttonAdd,
-  closeButtonAdd,
-  closeButtonEdit,
-  closeButtonImage,
-  popupText,
-  popupImageElement,
+  buttonAddClose,
+  buttonEditClose,
+  buttonImageClose,
   namePlace,
   urlInput,
   buttonCreateCard,
   nameInput,
   jobInput,
-  names,
+  profileName,
   profession,
-  cardTemplate,
   cardsContainer,
   profileForm,
   cardForm,
@@ -68,7 +65,7 @@ function closePopup(popup) {
 
 //Открытие попапа редактирование профиля
 const openProfilePopup = function () {
-  nameInput.value = names.textContent;
+  nameInput.value = profileName.textContent;
   jobInput.value = profession.textContent;
   openPopup(popupProfile);
 };
@@ -96,7 +93,7 @@ const closeAddImage = function () {
 //Сохранение значений попапа редактирования
 function handleProfileFormSubmit(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  names.textContent = nameInput.value;
+  profileName.textContent = nameInput.value;
   profession.textContent = jobInput.value;
   closePopup(popupProfile);
 }
@@ -111,11 +108,18 @@ const handleCardFormSubmit = (event) => {
   buttonCreateCard.classList.add("popup__save-button_disabled");
 };
 
-//Рендор карточки
-const renderCard = (text) => {
-  const card = new Card(text);
-  cardsContainer.prepend(card.getView());
-};
+
+
+function createCard(cardData) {
+  const card = new Card(cardData);
+  return card;
+}
+
+const renderCard = (cardData) => {
+  cardsContainer.prepend(createCard(cardData))
+
+}
+
 
 initialCards.forEach(renderCard);
 
@@ -144,12 +148,12 @@ function closeByEsc(evt) {
 }
 
 buttonEdit.addEventListener("click", openProfilePopup);
-closeButtonEdit.addEventListener("click", closeProfilePopup);
+buttonEditClose.addEventListener("click", closeProfilePopup);
 
 buttonAdd.addEventListener("click", openAddCard);
-closeButtonAdd.addEventListener("click", closeAddCard);
+buttonAddClose.addEventListener("click", closeAddCard);
 
-closeButtonImage.addEventListener("click", closeAddImage);
+buttonImageClose.addEventListener("click", closeAddImage);
 
 cardForm.addEventListener("submit", handleCardFormSubmit);
 profileForm.addEventListener("submit", handleProfileFormSubmit);
