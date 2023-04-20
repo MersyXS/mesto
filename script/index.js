@@ -23,6 +23,7 @@ import {
   profileForm,
   cardForm,
 } from "./constants.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 
 //Параметры карточек
 const initialCards = [
@@ -75,10 +76,6 @@ const closeAddCard = function () {
   closePopup(popupAdd);
 };
 
-//Закрытие попапа с зумом
-const closeAddImage = function () {
-  closePopup(popupImage);
-};
 
 //Сохранение значений попапа редактирования
 function handleProfileFormSubmit(evt) {
@@ -133,8 +130,6 @@ buttonEditClose.addEventListener("click", closeProfilePopup);
 
 buttonAdd.addEventListener("click", openAddCard);
 buttonAddClose.addEventListener("click", closeAddCard);
-
-buttonImageClose.addEventListener("click", closeAddImage);
 
 cardForm.addEventListener("submit", handleCardFormSubmit);
 profileForm.addEventListener("submit", handleProfileFormSubmit);
