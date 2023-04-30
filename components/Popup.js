@@ -1,22 +1,29 @@
 export default class Popup {
     constructor(popupContainer) {
         this._popupContainer = document.querySelector(popupContainer);
-        this._closePopup = this._popupContainer.querySelector('.popup__close-button')
+        this._closePopup = this._popupContainer.querySelector('.popup__close-button');
+        this._handleEscClose  = this._handleEscClose.bind(this);
     }
+
+//Открытие модального окна
     open() {
-        this._popupContainer.classList.add("popup_opened");
+        this._popupContainer.classList.add('popup_opened');
+        document.addEventListener('keydown', this._handleEscClose);
     }
 
+//Закрытие модального окна
     close() {
-        this._popupContainer.classList.remove("popup_opened");
+        this._popupContainer.classList.remove('popup_opened');
+        document.removeEventListener('keydown', this._handleEscClose);
     }
 
-
-    _handleEscClose() {
+//Закрытие модального окна на esc
+    _handleEscClose(evt) {
         if (evt.key === "Escape") {
-            this.close;
+          this.close();
         }
-    }
+      }
+
 
     setEventListeners() {
         this._popupContainer.addEventListener("mousedown", (evt) => {
@@ -26,19 +33,8 @@ export default class Popup {
         });
 
         this._closePopup.addEventListener("click", () => {
-
             this.close();
         });
 
     }
 }
-
-//     //Закрытие попада беграундом
-//     const popupList = document.querySelectorAll(".popup");
-// popupList.forEach((popup) => {
-//     this.__popupContainer("mousedown", (evt) => {
-//         if (evt.target.classList.contains("popup")) {
-//             closePopup(popup);
-//         }
-//     });
-// });

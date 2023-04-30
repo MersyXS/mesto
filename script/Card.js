@@ -6,27 +6,18 @@ export default class Card {
         this._handleCardClick = handleCardClick;
     }
 
+    //Selector карточки
     _getTemplateCard() {
-        const card = document.querySelector(".item_template").content.querySelector(".elements__item").cloneNode(true);
+        const card = document.querySelector(this._cardSelector).content.querySelector(".elements__item").cloneNode(true);
 
         return card;
     }
 
-    getView() {
-        this._newCard = this._getTemplateCard();
-        this._buttonLike = this._newCard.querySelector(".elements__like-button");
-        this._cardImage = this._newCard.querySelector(".elements__image");
-        this._setEventListeners();
-        this._setData();
-        return this._newCard;
-    }
-
+  //Selector элементов
     _setData() {
-        const name = this._newCard.querySelector(".elements__title");
-        const link = this._newCard.querySelector(".elements__image");
-        link.src = this._link;
-        link.alt = this._name;
-        name.textContent = this._name;
+        this._newCard.querySelector('.elements__image').src = this._link;
+        this._newCard.querySelector('.elements__image').alt = this._name;
+        this._newCard.querySelector('.elements__title').textContent = this._name;
     }
 
     _handleOpenPopup() {
@@ -47,16 +38,22 @@ export default class Card {
 
 
         this._cardImage.addEventListener("click", () => {
-            const currentListElementImage = this._link;
-            const currentListElementText = this._name;
-            this._newCard.textContent = currentListElementText;
-            this._newCard.src = currentListElementImage;
-            this._newCard.alt = currentListElementText;
+            this._handleCardClick(this._name, this._link);
         });
     }
 
 
     _likeCard() {
         this._buttonLike.classList.toggle("elements__like-button_active");
+    }
+    
+
+    getView() {
+        this._newCard = this._getTemplateCard();
+        this._buttonLike = this._newCard.querySelector(".elements__like-button");
+        this._cardImage = this._newCard.querySelector(".elements__image");
+        this._setEventListeners();
+        this._setData();
+        return this._newCard;
     }
 }
