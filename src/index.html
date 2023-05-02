@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Проект Mesto</title>
-    <link rel="stylesheet" href="pages/index.css" />
   </head>
 
   <body class="page">
     <header class="header">
-      <img class="header__logo" src="images/logo.svg" alt="Логотип" />
+      <img
+        class="header__logo"
+        src="<%=require('./images/logo.svg')%>"
+        alt="Логотип"
+      />
     </header>
 
     <main class="content">
@@ -18,7 +21,7 @@
         <div class="profile__info">
           <img
             class="profile__avatar"
-            src="images/avatar.jpg"
+            src="<%=require('./images/avatar.jpg')%>"
             alt="Аватар профиля"
           />
           <div class="profile__block">
