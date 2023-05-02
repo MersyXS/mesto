@@ -1,7 +1,7 @@
-import "../pages/index.css"; // добавьте импорт главного файла стилей
-import Card from "./Card.js";
+import "./index.css"; // добавьте импорт главного файла стилей
+import Card from "../components/Card.js";
 import Section from "../components/Section.js";
-import FormValidator from "./FormValidator.js";
+import FormValidator from "../components/FormValidator.js";
 import {
   popupProfile,
   popupAdd,
@@ -11,7 +11,7 @@ import {
   nameInput,
   jobInput,
   cardsContainer,
-} from "./constants.js";
+} from "../components/utils/Constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
@@ -50,8 +50,6 @@ const createCard = (data) => {
     {
       data: data,
       handleCardClick: (name, link) => {
-        const viewImagePopup = new PopupWithImage(".image-popup");
-        viewImagePopup.setEventListeners();
         viewImagePopup.open(name, link);
       },
     },
@@ -71,11 +69,12 @@ const addCardPopup = new PopupWithForm({
     };
     cardsList.addItem(createCard(item));
     addCardPopup.close();
+    addCardFormValidator.enableValidation();
   },
 });
 
 //Заполнение информации пользователя
-function formInputs({ username, job }) {
+function viewInputsValue({ username, job }) {
   nameInput.value = username;
   jobInput.value = job;
 }
@@ -92,6 +91,7 @@ const editProfilePopup = new PopupWithForm({
       username: dataForm.username,
       job: dataForm.job,
     });
+    editProfileFormValidator.enableValidation();
     editProfilePopup.close();
   },
 });
@@ -106,18 +106,18 @@ const cardsList = new Section(
   cardsContainer
 );
 
-const EditProfileFormValidator = new FormValidator(
+const editProfileFormValidator = new FormValidator(
   validationConfig,
   popupProfile
 );
-EditProfileFormValidator.enableValidation();
+editProfileFormValidator.enableValidation();
 
 const addCardFormValidator = new FormValidator(validationConfig, popupAdd);
 addCardFormValidator.enableValidation();
 
 buttonEdit.addEventListener("click", () => {
   const info = userInfo.getUserInfo();
-  formInputs({
+  viewInputsValue({
     username: info.username,
     job: info.job,
   });
