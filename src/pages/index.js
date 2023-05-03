@@ -69,7 +69,6 @@ const addCardPopup = new PopupWithForm({
     };
     cardsList.addItem(createCard(item));
     addCardPopup.close();
-    addCardFormValidator.enableValidation();
   },
 });
 
@@ -91,10 +90,12 @@ const editProfilePopup = new PopupWithForm({
       username: dataForm.username,
       job: dataForm.job,
     });
-    editProfileFormValidator.enableValidation();
     editProfilePopup.close();
   },
 });
+
+const viewImagePopup = new PopupWithImage(".image-popup");
+viewImagePopup.setEventListeners();
 
 const cardsList = new Section(
   {
@@ -121,10 +122,12 @@ buttonEdit.addEventListener("click", () => {
     username: info.username,
     job: info.job,
   });
+  editProfileFormValidator.resetValidation();
   editProfilePopup.open();
 });
 
 buttonAdd.addEventListener("click", () => {
+  addCardFormValidator.resetValidation();
   addCardPopup.open();
 });
 
